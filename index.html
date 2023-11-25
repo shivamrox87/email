@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weekly Newsletter</title>
+    <title>Website Cards</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,45 +12,61 @@
             padding: 0;
         }
 
-        .container {
+        .card-container {
             display: flex;
-            flex-direction: column;
-            height: 100vh;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            width: 300px;
+            margin: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
             overflow: hidden;
         }
 
-        .newsletter {
+        .card iframe {
             width: 100%;
-            height: 55vh; /* Initial height for larger screens */
-            box-sizing: border-box;
-            padding: 20px;
-            overflow-y: auto;
+            height: 200px; /* Set the initial height for larger screens */
+            border: none;
+            border-radius: 8px 8px 0 0;
         }
 
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 5px;
+        .card-content {
+            padding: 20px;
         }
 
         @media screen and (max-width: 767px) {
             /* Media query for screens up to 767px (typical phone size) */
-            .newsletter {
-                height: 60vh; /* Adjust the height for mobile devices */
+            .card {
+                width: calc(100% - 40px); /* Full width with some margin for mobile devices */
+            }
+
+            .card iframe {
+                height: 150px; /* Adjust the height for mobile devices */
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="newsletter">
+    <div class="card-container">
+        <div class="card">
             <iframe src="https://datascience.beehiiv.com/"></iframe>
+            <div class="card-content">
+                <h3>Card Title 1</h3>
+                <p>This is the content of card 1. You can add additional information here.</p>
+            </div>
         </div>
-        <div class="newsletter">
+        <div class="card">
             <iframe src="https://growthhmindset.beehiiv.com/"></iframe>
+            <div class="card-content">
+                <h3>Card Title 2</h3>
+                <p>This is the content of card 2. You can add additional information here.</p>
+            </div>
         </div>
+        <!-- Add more cards as needed -->
     </div>
 </body>
 
