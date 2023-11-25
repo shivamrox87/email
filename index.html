@@ -1,72 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Newsletter</title>
     <style>
-         body {
+        body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
+
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
+
         .newsletter {
-            max-width: 400px;
-            padding: 20px;
-            background-color: #f2f2f2;
-            border-radius: 5px;
+            max-width: 800px; /* Increased width for better display of iframe */
+            margin: 20px; /* Added margin for better spacing */
         }
-        .newsletter h2 {
-            text-align: center;
-        }
-        .newsletter label {
-            display: block;
-            margin-top: 10px;
-        }
-        .newsletter input[type="email"] {
+
+        iframe {
             width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-        .newsletter input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            background-color: #4caf50;
-            color: white;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
+            height: 400px;
+            border: none; /* Removed iframe border */
+            border-radius: 5px; /* Added border-radius for a cleaner look */
         }
     </style>
-<head>
-    <title>Weekly Newsletter</title>
-    
 </head>
+
 <body>
     <div class="container">
         <div class="newsletter">
-            <h2>Weekly Newsletter</h2>
-            <form id="newsletterForm" action="subscribe.php" method="POST">
-                <label>Email:</label>
-                <input type="email" name="email" required>
-                <input type="submit" value="Subscribe">
-            </form>
+            <!-- Removed the form and added the iframe -->
+            <iframe src="https://datascience.beehiiv.com/"></iframe>
         </div>
     </div>
-    
 </body>
-    <script>
-        
-        document.getElementById('newsletterForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            // TODO: Send the email to the server for subscription
-            alert('Thank you for subscribing!');
-            document.getElementById('newsletterForm').reset();
-        });
-    
-    </script>
+
+</html>
