@@ -1,5 +1,48 @@
 <!DOCTYPE html>
 <html>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .newsletter {
+            max-width: 400px;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+        }
+        .newsletter h2 {
+            text-align: center;
+        }
+        .newsletter label {
+            display: block;
+            margin-top: 10px;
+        }
+        .newsletter input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .newsletter input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
 <head>
     <title>Weekly Newsletter</title>
     
@@ -17,3 +60,13 @@
     </div>
     
 </body>
+    <script>
+        
+        document.getElementById('newsletterForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // TODO: Send the email to the server for subscription
+            alert('Thank you for subscribing!');
+            document.getElementById('newsletterForm').reset();
+        });
+    
+    </script>
