@@ -10,12 +10,27 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #007bff;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
         }
 
         .card-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
+            margin: 20px 0;
         }
 
         .card {
@@ -25,6 +40,12 @@
             border-radius: 8px;
             overflow: hidden;
             position: relative;
+            background-color: #fff;
+            transition: box-shadow 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
         .card img {
@@ -49,12 +70,19 @@
 
         .know-more-btn {
             display: inline-block;
-            padding: 8px 16px;
+            padding: 10px 20px;
             margin-right: 10px;
             text-decoration: none;
-            color: #333;
-            background-color: #eaeaea;
+            color: #fff;
+            background-color: #007bff;
+            border: 2px solid #007bff;
             border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .know-more-btn:hover {
+            background-color: #0056b3;
+            color: #fff;
         }
 
         .more-about-shivam-btn {
@@ -64,15 +92,25 @@
             text-decoration: none;
             color: #fff;
             background-color: #007bff;
+            border: 2px solid #007bff;
             border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .more-about-shivam-btn:hover {
+            background-color: #0056b3;
+            color: #fff;
         }
     </style>
 </head>
 
 <body>
+    <header>
+        <h1>Shivam Maurya's Newsletter Showcase</h1>
+    </header>
     <div class="card-container">
         <div class="card">
-            <img src="DS.png" alt="Card Image 1">
+            <img src="GM.png" alt="Card Image 1">
             <div class="card-content">
                 <h3>Newsletter Title 1</h3>
                 <p>This is the content of newsletter 1. You can add additional information here.</p>
@@ -82,7 +120,7 @@
             </div>
         </div>
         <div class="card">
-            <img src="GM.png" alt="Card Image 2">
+            <img src="DS.png" alt="Card Image 2">
             <div class="card-content">
                 <h3>Newsletter Title 2</h3>
                 <p>This is the content of newsletter 2. You can add additional information here.</p>
