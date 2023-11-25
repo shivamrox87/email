@@ -21,7 +21,7 @@
 
         .newsletter {
             width: 100%;
-            height: 55vh; /* Increased height for each iframe on phones */
+            height: 55vh; /* Initial height for larger screens */
             box-sizing: border-box;
             padding: 20px;
             overflow-y: auto;
@@ -34,15 +34,10 @@
             border-radius: 5px;
         }
 
-        @media screen and (min-width: 768px) {
-            /* Media query for screens 768px and above */
-            .container {
-                flex-direction: row;
-            }
-
+        @media screen and (max-width: 767px) {
+            /* Media query for screens up to 767px (typical phone size) */
             .newsletter {
-                height: 100%;
-                width: 50%;
+                height: 60vh; /* Adjust the height for mobile devices */
             }
         }
     </style>
