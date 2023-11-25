@@ -14,28 +14,35 @@
 
         .container {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column; /* Change flex-direction to column */
             height: 100vh;
-            flex-wrap: wrap; /* Added flex-wrap for responsiveness */
+            overflow: hidden; /* Hide overflow to prevent scrolling on the body */
         }
 
         .newsletter {
-            width: 49%;
+            width: 100%;
+            height: 50vh; /* Set initial height to 50% of the viewport */
             box-sizing: border-box;
             padding: 20px;
+            overflow-y: auto; /* Enable vertical scrolling */
         }
 
         iframe {
             width: 100%;
-            height: 100vh;
+            height: 100%; /* Full height for the iframe */
             border: none;
             border-radius: 5px;
         }
 
-        @media screen and (max-width: 767px) {
-            /* Media query for screens up to 767px (typical phone size) */
+        @media screen and (min-width: 768px) {
+            /* Media query for screens 768px and above */
+            .container {
+                flex-direction: row; /* Change flex-direction to row for larger screens */
+            }
+
             .newsletter {
-                width: 100%; /* Full width for smaller screens */
+                height: 100%; /* Full height for the iframe on larger screens */
+                width: 50%; /* Set width to 50% for larger screens */
             }
         }
     </style>
