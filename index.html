@@ -4,159 +4,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shivam Maurya's Newsletter Showcase</title>
+    <title>Mouse Trail</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             overflow: hidden; /* Hide overflow to prevent scrollbars */
         }
 
-        video {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translateX(-50%) translateY(-50%);
-            z-index: -1; /* Place the video behind other content */
-            object-fit: cover;
-        }
-
-        header {
-            background-color: rgba(51, 51, 51, 0.8); /* Add a semi-transparent background for better readability */
-            padding: 20px;
-            text-align: center;
-            color: #fff;
-            width: 100%;
-            position: relative;
-            z-index: 1; /* Ensure the header is above the video */
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 30px;
-        }
-
-        .card-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin: 20px;
-            max-width: 1200px; /* Limiting container width for better responsiveness */
-            position: relative;
-            z-index: 1; /* Ensure the cards are above the video */
-        }
-
-        .card {
-            width: calc(33.33% - 20px);
-            margin: 20px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-            background-color: #fff;
-            transition: transform 0.3s;
-            cursor: pointer;
-        }
-
-        .card:hover {
-            transform: scale(1.05);
-        }
-
-        .card img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            border-radius: 8px 8px 0 0;
-        }
-
-        .card-content {
-            padding: 20px;
-        }
-
-        .card-buttons {
-            padding: 10px;
-            background-color: #f4f4f4;
-            text-align: center;
-        }
-
-        .know-more-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            text-decoration: none;
-            color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 4px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .know-more-btn:hover {
-            background-color: #0056b3;
-        }
-
-        .more-about-shivam-btn {
-            margin: 20px;
-            padding: 12px 24px;
-            text-decoration: none;
-            color: #fff;
-            background-color: #333;
-            border: none;
-            border-radius: 4px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .more-about-shivam-btn:hover {
-            background-color: #555;
-        }
-
-        /* Adjust layout for mobile phones */
-        @media (max-width: 768px) {
-            .card {
-                width: 100%;
-            }
+        canvas {
+            display: block;
         }
     </style>
 </head>
 
 <body>
-    <video autoplay loop muted>
-        <source src="video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <header>
-        <h1>Shivam Maurya's Newsletter Showcase</h1>
-    </header>
-    <div class="card-container">
-        <div class="card">
-            <img src="GM.png" alt="Card Image 1">
-            <div class="card-content">
-                <h3>Newsletter Title 1</h3>
-                <p>This is the content of newsletter 1. You can add additional information here.</p>
-            </div>
-            <div class="card-buttons">
-                <a href="https://shivamm.com" class="know-more-btn">Know More</a>
-            </div>
-        </div>
-        <div class="card">
-            <img src="DS.png" alt="Card Image 2">
-            <div class="card-content">
-                <h3>Newsletter Title 2</h3>
-                <p>This is the content of newsletter 2. You can add additional information here.</p>
-            </div>
-            <div class="card-buttons">
-                <a href="https://shivamm.com" class="know-more-btn">Know More</a>
-            </div>
-        </div>
-        <!-- Add more cards as needed -->
-    </div>
-    <a href="https://shivamm.com" class="more-about-shivam-btn">More about Shivam</a>
+    <canvas id="mouseTrailCanvas"></canvas>
+    <script>
+        const canvas = document.getElementById('mouseTrailCanvas');
+        const context = canvas.getContext('2d');
+        let trail = [];
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        document.addEventListener('mousemove', (event) => {
+            trail.push({ x: event.clientX, y: event.clientY });
+
+            // Keep the trail limited to the last 50 points for better performance
+            if (trail.length > 50) {
+                trail.shift();
+            }
+
+            drawTrail();
+        });
+
+        function drawTrail() {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < trail.length; i++) {
+                const point = trail[i];
+                const opacity = 1 - i / trail.length;
+
+                context.beginPath();
+                context.arc(point.x, point.y, 5, 0, Math.PI * 2);
+                context.fillStyle = `rgba(255, 0, 0, ${opacity})`; // Red color with variable opacity
+                context.fill();
+                context.closePath();
+
+                if (i > 0) {
+                    context.beginPath();
+                    context.moveTo(trail[i - 1].x, trail[i - 1].y);
+                    context.lineTo(point.x, point.y);
+                    context.strokeStyle = `rgba(255, 0, 0, ${opacity})`; // Red color with variable opacity
+                    context.lineWidth = 2;
+                    context.stroke();
+                    context.closePath();
+                }
+            }
+        }
+
+        // Resize canvas when the window is resized
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
 
 </html>
