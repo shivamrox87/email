@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Cards</title>
+    <title>Shivam Maurya's Newsletter Showcase</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -24,6 +24,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             overflow: hidden;
+            position: relative;
         }
 
         .card img {
@@ -36,15 +37,34 @@
             padding: 20px;
         }
 
-        @media screen and (max-width: 767px) {
-            /* Media query for screens up to 767px (typical phone size) */
-            .card {
-                width: calc(100% - 40px); /* Full width with some margin for mobile devices */
-            }
+        .card-buttons {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            background-color: #fff;
+            text-align: center;
+        }
 
-            .card img {
-                height: auto; /* Adjust the height for mobile devices */
-            }
+        .know-more-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            margin-right: 10px;
+            text-decoration: none;
+            color: #333;
+            background-color: #eaeaea;
+            border-radius: 4px;
+        }
+
+        .more-about-shivam-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 24px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            border-radius: 4px;
         }
     </style>
 </head>
@@ -52,21 +72,28 @@
 <body>
     <div class="card-container">
         <div class="card">
-            <img src="GM.png" alt="Card Image 1">
+            <img src="DS.png" alt="Card Image 1">
             <div class="card-content">
-                <h3>Card Title 1</h3>
-                <p>This is the content of card 1. You can add additional information here.</p>
+                <h3>Newsletter Title 1</h3>
+                <p>This is the content of newsletter 1. You can add additional information here.</p>
+            </div>
+            <div class="card-buttons">
+                <a href="https://shivamm.com" class="know-more-btn">Know More</a>
             </div>
         </div>
         <div class="card">
-            <img src="DS.png" alt="Card Image 2">
+            <img src="GM.png" alt="Card Image 2">
             <div class="card-content">
-                <h3>Card Title 2</h3>
-                <p>This is the content of card 2. You can add additional information here.</p>
+                <h3>Newsletter Title 2</h3>
+                <p>This is the content of newsletter 2. You can add additional information here.</p>
+            </div>
+            <div class="card-buttons">
+                <a href="https://shivamm.com" class="know-more-btn">Know More</a>
             </div>
         </div>
         <!-- Add more cards as needed -->
     </div>
+    <a href="https://shivamm.com" class="more-about-shivam-btn">More about Shivam</a>
 </body>
 
 </html>
