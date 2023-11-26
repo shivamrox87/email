@@ -82,33 +82,37 @@
             border-radius: 8px 8px 0 0;
         }
 
-        .card-content {
+        .card {
+    position: relative; /* Add this to make absolute positioning relative to the card */
+    width: calc(33.33% - 20px);
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.card-content {
     padding: 20px;
     font-size: 18px;
     display: flex;
     flex-direction: column;
-    }
+    height: 100%; /* Add this to make sure the card expands to the full height */
+}
 
-    .card-buttons,
-    .more-about-shivam-btn {
-        font-size: 16px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px; /* Adjust this value for the desired distance from the text */
-    }
+.card-buttons,
+.more-about-shivam-btn {
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto; /* Set margin-top to auto to push the buttons to the bottom */
+}
 
-    .know-more-btn,
-    .more-about-shivam-btn {
-        display: inline-block;
-        padding: 12px 24px;
-        text-decoration: none;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        transition: background-color 0.3s, color 0.3s;
-        cursor: pointer;
-    }
+/* ... other styles ... */
+
 
 /* ... other styles ... */
 
