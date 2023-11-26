@@ -52,16 +52,17 @@
 
         .card-container {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-between;
             align-items: center;
             margin: 20px;
-            max-width: 100%;
+            max-width: 1200px;
             position: relative;
             z-index: 1;
         }
 
         .card {
-            width: 100%;
+            width: calc(33.33% - 20px);
             margin: 20px 0;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
@@ -166,6 +167,7 @@
                 <a href="https://datascience.beehiiv.com/" class="know-more-btn">Subscribe Now</a>
             </div>
         </div>
+        <!-- Add more cards as needed -->
     </div>
     <a href="https://shivamm.com" class="more-about-shivam-btn">More about Shivam</a>
     <script>
