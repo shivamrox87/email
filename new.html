@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#blogCard {
+  margin-top: 20px;
+}
+
+    </style>
+
+  <title>Blog Card Generator</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Blog Card Generator</h1>
+    <label for="blogUrl">Enter Blog URL:</label>
+    <input type="text" id="blogUrl" placeholder="https://your-blog-post-url.com">
+    <button onclick="generateBlogCard()">Generate Card</button>
+    <div id="blogCard"></div>
+  </div>
+  <script>
+    async function extractBlogInfo(blogURL) {
+  // Your extraction logic here (the function from the previous response)
+}
+
+function generateBlogCard() {
+  const blogUrlInput = document.getElementById('blogUrl');
+  const blogCardContainer = document.getElementById('blogCard');
+
+  const blogURL = blogUrlInput.value.trim();
+
+  if (blogURL !== '') {
+    extractBlogInfo(blogURL).then((blogInfo) => {
+      if (blogInfo) {
+        const cardHTML = `
+          <div class="blog-card">
+            <h2>${blogInfo.title}</h2>
+            <p><strong>Author:</strong> ${blogInfo.author}</p>
+            <p><strong>Date Published:</strong> ${blogInfo.datePublished}</p>
+            <p>${blogInfo.description}</p>
+          </div>
+        `;
+
+        blogCardContainer.innerHTML = cardHTML;
+      } else {
+        blogCardContainer.innerHTML = '<p>Error extracting blog info. Check the URL or the structure of the blog post.</p>';
+      }
+    });
+  } else {
+    blogCardContainer.innerHTML = '<p>Please enter a valid blog URL.</p>';
+  }
+}
+
+  </script>
+</body>
+</html>
