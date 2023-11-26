@@ -1,3 +1,19 @@
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/inter/v4/XRXV3I6Li01BKofINeaB.woff2') format('woff2');
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxK.woff2') format('woff2');
+    font-display: swap;
+  }
+  
 body {
     font-family: "Inter", ;
     margin: 0;
@@ -58,7 +74,6 @@ h1 {
     background-color: #fff;
     transition: transform 0.3s;
     cursor: pointer;
-
     padding-bottom: 20px;
 }
 
