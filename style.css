@@ -51,7 +51,7 @@ h1 {
 
 .card {
     width: calc(100% - 20px);
-    margin: 20px 0; /* Adjust the margin to add spacing between cards */
+    margin: 40px 0; /* Adjust the margin to add spacing between cards */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
