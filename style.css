@@ -135,7 +135,7 @@ h1 {
     font-family: inherit;
     font-weight: 500;
     color: black;
-    background-color: white;
+    background-color: rgb(8, 7, 7);
    }
    
    .btn:hover {
@@ -162,7 +162,7 @@ h1 {
    }
    
    .btn::after {
-    background-color: #fff;
+    background-color: #000000;
    }
    
    .btn:hover::after {
