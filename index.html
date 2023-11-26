@@ -139,36 +139,42 @@
             width: 300px;
             height: 100%;
             background-color: #fff;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             overflow-y: auto;
             padding: 20px;
             z-index: 2;
             display: flex;
             flex-direction: column;
             align-items: center;
+            transition: all 0.3s;
+        }
+
+        .author-column:hover {
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
         }
 
         .author-column img {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         .author-column h3 {
             margin: 0;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
+            color: #333;
         }
 
         .author-column p {
             margin: 0;
-            font-size: 14px;
+            font-size: 16px;
             color: #666;
             text-align: center;
         }
 
-        /* Adjust card-container to make space for the fixed column */
+        /* Adjusted card-container to make space for the fixed column */
         .card-container {
             margin-left: 320px; /* 300px (width of the fixed column) + 20px (padding) */
             display: flex;
@@ -178,12 +184,13 @@
             max-width: 1200px;
             position: relative;
             z-index: 1;
+            transition: margin-left 0.3s;
         }
 
-        /* Adjust media query to handle smaller screens */
+        /* Updated media query for smaller screens */
         @media (max-width: 768px) {
             .card-container {
-                margin-left: 0;
+                margin-left: 20px; /* Adjust the margin for smaller screens */
                 flex-direction: column;
                 align-items: center;
             }
@@ -193,12 +200,7 @@
                 width: 100%;
                 box-shadow: none;
                 margin-bottom: 20px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .card {
-                width: 100%;
+                transition: none;
             }
         }
     </style>
